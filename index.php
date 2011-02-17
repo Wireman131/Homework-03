@@ -96,12 +96,13 @@ $message->setSubject('Tony Gaudio, SWIFT Mailer 4.0.6');
  * from address, OR if you include a name.
  */
 $message->setFrom(array('tonyforschool@gmail.com' => 'Tony Gaudio'));
+$message->setReplyTo(array('tonyforschool@gmail.com' => 'Tony Gaudio'));
 /*
  * Same thing goes for the To field, need to use array if more than one to
  * address, OR if you include a name.
  */
 $message->setTo(array(
-  'wireman131@chartermi.net' => 'Anthony Gaudio'));
+  'wireman132@chartermi.net' => 'Anthony Gaudio'));
 /*
  * Bounce path for messages that can not be delivered, or a Reply To address.
  */
@@ -115,12 +116,21 @@ $message->setBody('I rock at PHP', 'text/html');
  * mailer object.  result will be a number - 0 means the message failed, any
  * other digit tells you how many messages were sucesfully delivered.
  */
+$result = $mailer->send($message, $failures);  
 
-$result = $mailer->send($message);
-/*
+if (!$result)
+{
+  echo "Failures:";
+  print_r($failures);
+  trigger_error('Send Error Message From IF Statement : ' . $failures,E_USER_NOTICE);
+} else {
+  echo "Another amazing success story.<br/>";
+ /*
  * Output to browser the total (%d = decimal) sent messages.
  */
-printf("Sent %d messages\n", $result);
+  printf("Sent %d messages\n", $result);
+}
+
 /*
  * Catch block for the above try.  If there is an exception anywhere above it
  * will be assigned to $e
