@@ -122,6 +122,11 @@ if (!$result)
 {
   echo "Failures:";
   print_r($failures);
+  /*
+   * Quoted from the support forums -->
+   * The only type of failures that will go into that array are immediate 
+   * failures such as "Relay denied", "Malformed address", 
+   * "Service unavailable" and such like errors. <--- */
   trigger_error('Send Error Message From IF Statement : ' . $failures,E_USER_NOTICE);
 } else {
   echo "Another amazing success story.<br/>";
