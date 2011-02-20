@@ -41,9 +41,8 @@ date_default_timezone_set('America/Detroit');
    * appropriate slash, quoted text (folder name), another slash, and subfolder
    * name.
    */
-  define('SWIFT_PATH',APP_PATH . SLASH . 'library' . SLASH . 'swiftmailer' . 
+  define('SWIFT_PATH',APP_PATH . SLASH . 'library' . SLASH . 'SwiftMailer' . 
   SLASH . 'V4.0.6' . SLASH . 'lib');
- echo SWIFT_PATH;
  /*
   * Globally set included file path and name by concatenating a path and file
   * structure from previously set global variables.
